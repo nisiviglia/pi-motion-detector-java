@@ -10,8 +10,8 @@ public class App{
 
     public static void main( String[] args ){
 
-
-        System.out.println("hello world.");
+        MotionDetector motionDetector = new MotionDetector("/dev/serial0"); 
+        motionDetector.start();
     }
 
 }
