@@ -111,7 +111,7 @@ class MotionDetector{
     // This is the main function to utilize the motion detector.
     // It will first do all the initial calculations and then loop until
     // motion is detected then return.
-    public int start(){
+    public boolean start(){
     
         System.out.println("calibrating sensor.");
         
@@ -125,7 +125,7 @@ class MotionDetector{
         System.out.println("sensor calibrated. \ndetecting motion.");
 
         //start detecting motion
-        int motionDetected = this.detectMotion(low, high);
+        boolean motionDetected = this.detectMotion(low, high);
 
         System.out.println("motion detected.");
 
@@ -134,7 +134,7 @@ class MotionDetector{
 
     // This function will constantly check the distance to see
     // if it falls between the thresholds. If it doesn't it returns.
-    private int detectMotion(double low, double high){
+    private boolean detectMotion(double low, double high){
         
         //loop to get average and test against thresholds.
         double avg = 0.0;
@@ -148,7 +148,7 @@ class MotionDetector{
             avg = sum / ARRAYSIZE;
         }while(avg > low && avg < high);
 
-        return 1; 
+        return true; 
     }
 
     //Calculates an average distance from the sensor.
